@@ -1,0 +1,33 @@
+<% layout("/layouts/boilerplate") %>
+
+
+<div class="row mt-3">
+    <h2 class="col-6 offset-3">Profile Page</h2>
+    <div class="col-6 offset-3">
+        <div class="container mt-5">
+                <img 
+                src="<%= user.profileImage ? user.profileImage : " "  %>" 
+                alt="profile_Image" 
+                class="img-fluid rounded-circle mb-3"
+                style="width: 120px; height: 120px; object-fit: cover; " 
+                >
+        
+            <p><strong>Username:</strong> <%= user.username %></p><hr>
+            <p><strong>Email:</strong> <%= user.email %></p><hr>
+            <p><strong>Bio:</strong> <%= user.bio ? user.bio : 'No bio available.' %></p><hr>
+        </div>
+        
+        
+        <%if(currentUser && user._id.equals(currentUser._id)){%>
+            <div class="d-flex gap-3 mt-3">
+            <a href="/users/<%= user._id %>/Edit"
+                class="btn btn-primary  edit-btn "
+                >Update profile
+            </a>
+            <a href="/mybookings" class="btn btn-success">My Bookings</a>
+            </div>
+        <%}%>
+        
+
+    </div>
+</div>

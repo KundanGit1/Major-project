@@ -1,0 +1,41 @@
+<% layout("/layouts/boilerplate") %>
+
+
+<div class="row mt-3 mb-3">
+    <h2 class="col-6 offset-3">Update profile</h2>
+    <div class="col-6 offset-3">
+        <form action="/profile" method="POST" enctype="multipart/form-data" class="mt-4 text-left">
+            <div class="mb-3">
+                <label for="profileImage" class="form-label">Update Profile Image</label>
+                <input 
+                type="file" 
+                id="profileImage" 
+                name="profileImage" 
+                accept="image/*" 
+                class="form-control"
+                >
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="form-control" 
+                value="<%= user.name || '' %>" 
+                required>
+            </div>
+            <div class="mb-3">
+                <label for="bio" class="form-label">Bio</label>
+                <textarea 
+                id="bio" 
+                name="bio" 
+                class="form-control" 
+                rows="3"><%= user.bio || '' %></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Update Submit</button>
+        </form>
+        
+    </div>
+</div>
