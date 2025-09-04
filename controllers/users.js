@@ -99,7 +99,7 @@ module.exports.renderEditProfile = async (req, res) => {
         return res.redirect("/profile");
     }
     
-    res.render("users/editinfo.ejs", { user });
+    res.render("users/editInfo.ejs", { user });
 };
 
 module.exports.renderAllBooking = async (req, res) => {
